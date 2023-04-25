@@ -2,7 +2,6 @@ import './App.css';
 
 import React, {useState} from 'react';
 import { projects } from './components/projects';
-import { PropTypes} from 'prop-types';
 
 
 
@@ -21,7 +20,7 @@ function ToolBar(props) {
 
   function filterSelected(event) {
     props.onSelectFilter(event.target.innerText)
-
+    console.log(event.target.innerText)
     }
   
 
@@ -36,41 +35,41 @@ function ToolBar(props) {
 function App() {
   
   const filters=["All", "Websites", "Business Cards", "Flayers"];
-
-
-  const [ NewProjects, updateProjects ] = useState(projects)
-
+  
   const [ selected, setSelected] = useState('All');
 
+  const [ NewProjects, updateProjects ] = useState(projects);
+
+  console.log(selected)
+
+
 function onSelectFilter(filterValue) {
-    setSelected(filterValue)
-    updProjects()
-    }
-
-function updProjects() {
-    updateProjects(projects.filter((item) => {
+  setSelected(filterValue);
+  console.log(selected)
+  updateProjects ( projects.filter((item) => {
       if (selected === 'All') {
-         return projects
-         } else {
-          return item.category === selected
-         }
-        }))
+          return projects
+          } else {
+            return item.category === selected
+              }
+            }))
+        
+        
       }
-
-      onSelectFilter.propTypes = {
-        filterValue: PropTypes.string
-      }
+      
 
 
 
   return (
     <div>
-      <ToolBar
+      { <ToolBar
       filters={filters}
       selected={selected}
       onSelectFilter={onSelectFilter}
-       />
+       /> }
+      
        <div className='container'>
+        
 
         <div className='inner'>
           <ProjectList projects={NewProjects} />
