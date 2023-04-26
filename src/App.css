@@ -105,6 +105,4 @@ body {
 
 
 .element {
-  grid-row-start: span;
-  grid-row-end: span;
 }

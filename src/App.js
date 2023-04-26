@@ -9,7 +9,8 @@ function ProjectList(props) {
   const { projects } = props;
   return(
       <>
-          {projects.map((el, id) => { return <img key={id} src={el.img} alt="smth"></img>})}
+          {projects.map((el, id) => { return <div className='element'>
+             <img key={id} src={el.img} alt="smth"></img> </div>})}
           </>
          
   )
@@ -18,9 +19,9 @@ function ProjectList(props) {
 function ToolBar(props) {
   const {filters} = props;
 
-  function filterSelected(event) {
-    props.onSelectFilter(event.target.innerText)
+  const  filterSelected = (event) => {
     console.log(event.target.innerText)
+    props.onSelectFilter(event.target.innerText)
     }
   
 
@@ -43,22 +44,26 @@ function App() {
   console.log(selected)
 
 
-function onSelectFilter(filterValue) {
+const onSelectFilter = (filterValue) => {
   setSelected(filterValue);
   console.log(selected)
-  updateProjects ( projects.filter((item) => {
-      if (selected === 'All') {
-          return projects
-          } else {
-            return item.category === selected
-              }
-            }))
-        
-        
+  updateProjects (projects.filter((item) => {
+    if (selected === 'All') {
+        return projects
+        } else {
+          return item.category === selected
+            }
+          }))
       }
+
+//   const  FilterValue = NewProjects.filter((item)=> {
+//     if (selected === 'All') {
+//       return projects
+//       } else {
+//         return item.category === selected
+//           }
+// })
       
-
-
 
   return (
     <div>
