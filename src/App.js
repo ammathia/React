@@ -47,7 +47,7 @@ function App() {
 const onSelectFilter = (filterValue) => {
   setSelected(filterValue);
   console.log(selected)
-  updateProjects (projects.filter((item) => {
+  updateProjects(projects.filter((item) => {
     if (selected === 'All') {
         return projects
         } else {
