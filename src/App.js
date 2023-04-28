@@ -2,12 +2,9 @@ import './App.css';
 import React, {useState} from 'react';
 import { projects } from './components/projects';
 
-
-
 function ProjectList(props) {
   const { projects } = props;
 
-  
   return(
       <>
           {projects.map((el, id) => { return <div key={id} className='element'>
@@ -19,13 +16,10 @@ function ProjectList(props) {
 
 function ToolBar(props) {
   const {filters} = props;
-
   const  filterSelected = (event) => {
-    // console.log(event.target.innerText)
     props.onSelectFilter(event.target.innerText)
     }
   
-
   return (
     <div className='toolbar'>
       {filters.map((el)=> <button onClick={filterSelected} className='btn' key ={el}>{el}</button>)}
@@ -34,7 +28,7 @@ function ToolBar(props) {
   )
 }
 
-function App() {
+function App1() {
   
   const filters=["All", "Websites", "Business Cards", "Flayers"];
   
@@ -45,12 +39,6 @@ function App() {
 
 function onSelectFilter(filterValue) { 
   setSelected(filterValue);
-  // updateProjects(projects.filter((item) => {
-  //   if(selected === 'All') {
-  //     return projects
-  //   }
-  //   return item.category === selected
-  // }))
       }
 
 const filterProjects = NewProjects.filter((item) => {
@@ -85,4 +73,15 @@ console.log('render')
   );
 }
 
+
+function App() {
+
+  return(
+    <>
+    </>
+  )
+}
 export default App;
+
+
+
