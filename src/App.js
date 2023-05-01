@@ -93,12 +93,19 @@ function Item(props) {
 
 
   return(
-    <div>
+    <div style={{display:"flex", alignItems: "center", flexDirection: "column",textAlign: "center",}}>
       { data.showCars ? data.cars.map((item, id)=>{
-        return <div key={id} className='innercontainer1'>
+        return <div key={id} style ={{
+          width: "500px",
+          height: "150px",
+          border: "1px solid black",
+          boxShadow: "0 0 5px black",
+          margin: "10px",
+          borderRadius: "5px",
+        }}>
           <h1 style={{wordBreak: "break-all"}} className='triger'>Car name: {item.name}</h1>
           <p style={{margin: "10px"}}>{"year: " + item.year}</p>
-          <input  style={{fontSize: "20px", textAlign: "center"}}
+          <input maxLength="14"  style={{fontSize: "20px", textAlign: "center"}}
           type="text" value={data.cars[id].name}  onChange={event => {props.ChangeTitle(event.target.value, id)}} />
           <button onClick={()=>props.DeleteItem(id)} style={{margin:"10px", fontSize:"20px"}} type="button">delete</button>
 
@@ -147,12 +154,12 @@ function App() {
   showCars: true
 };
 
-const startNames = ["Ford", "Nissan", "Bugatti",]
+const startNames = ["Ford", "Nissan", "Bugatti",];
 const [names, setNames] =  useState(startNames);
 const [data, setData] = useState(cars);
   
 function ChangeTitle(name, id) {
-  if (name==="") {
+  if (name === "") {
     name = names[id]
   }
  
