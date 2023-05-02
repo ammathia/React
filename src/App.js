@@ -1,7 +1,6 @@
 import './App.css';
 import React, {useState} from 'react';
 import { projects } from './components/projects';
-import { func } from 'prop-types';
 
 function ProjectList(props) {
   const { projects } = props;
@@ -17,16 +16,15 @@ function ProjectList(props) {
 
 function ToolBar(props) {
   const {filters} = props;
+  const {selected} = props;
 
-
-
- 
-  
   return (
     <div className='toolbar'>
-      {filters.map((el)=> <button onClick={event =>{
+      {filters.map((el) => <button onClick={event => {
+
         props.onSelectFilter(event.target.innerText);
-        }}  className='btn' key ={el}>{el}</button>)}
+
+      }}  className={selected == el ? "btn_active" : "btn"} key ={el}> {el} </button>)}
       
     </div>
   )
@@ -47,6 +45,7 @@ function onSelectFilter(filterValue) {
       console.log(selected)
 
 const filterProjects = NewProjects.filter((item) => {
+
   if(selected === 'All') {
     return projects
   }
@@ -67,7 +66,6 @@ console.log('render')
       
        <div className='container'>
         
-
         <div className='inner'>
           <ProjectList projects={filterProjects} />
         </div>
@@ -135,7 +133,7 @@ class Title extends React.Component {
 }
 
 
-function App() {
+function App2() {
   
   const cars = {
     cars :[{
@@ -198,6 +196,19 @@ return(
     </div>
   )
 }
+
+/////////////////////////////////////////////////////////////////////////////////
+
+
+
+function App() {
+
+  return(
+    <>
+    </>
+  )
+}
+
 
 
 export default App;
