@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useState} from 'react';
 import { projects } from './components/projects';
+import { films } from './components/films';
 
 function ProjectList(props) {
   const { projects } = props;
@@ -201,10 +202,70 @@ return(
 
 
 
+
+function Stars(props) {
+  const {number} = props;
+  let arr =[];
+
+  const star = ( <ul  className="card-body-stars u-clearfix">
+  <li key ={number}>
+    <svg fill="#D3BCA2" height="28" viewBox="0 0 18 18" width="28" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z"/>
+      <path d="M0 0h18v18H0z" fill="none"/>
+    </svg>
+  </li>
+</ul>
+);
+
+let zeroStar =(<p style={{fontSize:"20px"}}>None</p>);
+
+if (number >= 1 && number <= 5) {
+
+  for( let i = 0; i < number; i++ ) {
+    arr.push(star)
+  }
+} else {
+  arr.push(zeroStar)
+}
+
+let showStars = arr.map((item)=>{ return item});
+  
+  return(
+    <>
+    {showStars}
+    </>
+  )
+}
+
+
+function Film(props) {
+  const {films} = props;
+
+
+
+  return(
+    <div className='film_container'>
+    <h1 style={{padding: "10px"}}>Films/ratings</h1>
+    {films.map((item, id) => {
+    return <div className='film_card'>
+      <h3>{item.name}</h3>
+      <p style={{paddingTop: "10px"}}>Rating: 
+      </p>
+      <Stars number={item.stars} />
+    </div>
+  }) }
+</div>
+  )
+}
+
 function App() {
+  
+  
+  
 
   return(
     <>
+    <Film films={films} />
     </>
   )
 }
