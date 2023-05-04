@@ -202,7 +202,6 @@ return(
 
 
 
-
 function Stars(props) {
   const {number} = props;
   let arr =[];
@@ -258,17 +257,29 @@ function Film(props) {
   )
 }
 
-function App() {
+function App3() {
   
-  
-  
-
   return(
     <>
     <Film films={films} />
     </>
   )
 }
+
+////////////////////////////////////////////////
+
+
+
+
+function App() {
+
+  return(
+    <>
+ 
+    </>
+  )
+}
+
 
 
 
