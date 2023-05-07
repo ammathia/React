@@ -3,6 +3,10 @@ import React, {useState} from 'react';
 import { projects } from './components/projects';
 import { films } from './components/films';
 
+
+
+
+/*
 function ProjectList(props) {
   const { projects } = props;
 
@@ -76,7 +80,7 @@ console.log('render')
     </div>
   );
 }
-
+*/
 
 
 
@@ -86,7 +90,7 @@ console.log('render')
 
 
 
-
+/*
 function Item(props) {
   const {data} = props;
 
@@ -198,7 +202,7 @@ return(
   )
 }
 
-/////////////////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -265,10 +269,22 @@ function App3() {
     </>
   )
 }
+*/
 
 ////////////////////////////////////////////////
 
 
+
+
+function Items() {
+
+
+  return(
+    <>
+    <div></div>
+    </>
+  )
+}
 
 
 function App() {
