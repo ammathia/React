@@ -1,7 +1,10 @@
-import './App.css';
-import React, {useState} from 'react';
+import './App.scss';
+import React, {useEffect, useState} from 'react';
 import { projects } from './components/projects';
 import { films } from './components/films';
+import { Component } from 'react';
+import withClass from './HOC/withClass';
+import { useRef } from 'react';
 
 
 
@@ -90,9 +93,17 @@ console.log('render')
 
 
 
-/*
+
 function Item(props) {
   const {data} = props;
+  const inputRef = useRef(null);
+
+
+  // useEffect(() => {
+  //   if (!inputRef.current==null) {
+  //     inputRef.current.focus()
+  //   }
+  // },)
 
 
   return(
@@ -100,7 +111,6 @@ function Item(props) {
       { data.showCars ? data.cars.map((item, id)=>{
         return <div key={id} style ={{
           width: "500px",
-          height: "150px",
           border: "1px solid black",
           boxShadow: "0 0 5px black",
           margin: "10px",
@@ -108,7 +118,7 @@ function Item(props) {
         }}>
           <h1 style={{wordBreak: "break-all"}} className='triger'>Car name: {item.name}</h1>
           <p style={{margin: "10px"}}>{"year: " + item.year}</p>
-          <input maxLength="14"  style={{fontSize: "20px", textAlign: "center"}}
+          <input ref={inputRef} maxLength="14"  style={{fontSize: "20px", textAlign: "center"}}
           type="text" value={data.cars[id].name}  onChange={event => {props.ChangeTitle(event.target.value, id)}} />
           <button onClick={()=>props.DeleteItem(id)} style={{margin:"10px", fontSize:"20px"}} type="button">delete</button>
 
@@ -116,7 +126,7 @@ function Item(props) {
         
 
       })
-      :
+      : 
       null}
     </div>
   )
@@ -138,7 +148,7 @@ class Title extends React.Component {
 }
 
 
-function App2() {
+function App() {
   
   const cars = {
     cars :[{
@@ -203,9 +213,9 @@ return(
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////
 
-
-
+/*
 function Stars(props) {
   const {number} = props;
   let arr =[];
@@ -275,31 +285,89 @@ function App3() {
 
 
 
+/*
+class Lock extends Component {
 
-function Items() {
+  constructor(props) {
+    super(props)
 
+    this.inputRef = React.createRef();
+    this.state = {
+      number: 0
+    }
+  }
 
-  return(
-    <>
-    <div></div>
-    </>
-  )
+  
+
+componentDidMount() {
+  this.setState({})
+  if(this.state.number === 1) {
+    this.inputRef.focus()
+  }
 }
 
 
-function App() {
 
-  return(
-    <>
- 
-    </>
-  )
+  render() {
+    return(
+      <>
+       {this.props.cars.map((item, index)=> {
+          return <>
+          <h1>{item.name}</h1>
+          <input ref={this.inputRef} type="text"  />
+          </>
+        })}
+      </>
+    )
+  }
 }
 
 
 
+class App extends Component {
 
-export default App;
+  state = {
+    counter: 0
+  }
+
+  addCounter = () =>  {
+    this.setState((prevState) => {
+      return {
+        counter: prevState.counter + 1
+      }
+    })
+  }
+
+  Item = [{
+    name: "Audi",
+  },
+  {
+    name: "BMW",
+  },
+  {
+    name: "Opel",
+  },
+  ];
+
+  render() {
+    return(
+      <div>
+        <h2 className='Counter11'>Count {this.state.counter}</h2>
+        <button style={{ fontSize:"30px"}} onClick={this.addCounter}>+</button>
+        <button style={{ fontSize:"30px"}}  onClick={() => {this.setState({counter: this.state.counter - 1})}}>-</button>
+       <Lock cars={this.Item} />
+      </div>
+    )
+  }
+
+
+}
+
+
+export default withClass(App, App);
+*/
+
+export default App
 
 
 

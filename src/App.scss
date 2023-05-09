@@ -6,7 +6,7 @@ html {
 *::after,
 *::before {
   box-sizing: border-box;
-  margin: 0;
+  margin: 10px;
 }
 .App {
   text-align: center;
@@ -160,4 +160,11 @@ img {
   display: inline-block;
   margin: 0;
   padding-inline-start: 0;
+}
+
+
+$color1: red;
+
+.Counter11 {
+  color:$color1;
 }
