@@ -99,15 +99,11 @@ function Item(props) {
   const inputRef = useRef(null);
 
 
-  // useEffect(() => {
-  //   if (!inputRef.current==null) {
-  //     inputRef.current.focus()
-  //   }
-  // },)
 
 
   return(
     <div style={{display:"flex", alignItems: "center", flexDirection: "column",textAlign: "center",}}>
+
       { data.showCars ? data.cars.map((item, id)=>{
         return <div key={id} style ={{
           width: "500px",
@@ -117,14 +113,16 @@ function Item(props) {
           borderRadius: "5px",
         }}>
           <h1 style={{wordBreak: "break-all"}} className='triger'>Car name: {item.name}</h1>
+
           <p style={{margin: "10px"}}>{"year: " + item.year}</p>
+
           <input ref={inputRef} maxLength="14"  style={{fontSize: "20px", textAlign: "center"}}
           type="text" value={data.cars[id].name}  onChange={event => {props.ChangeTitle(event.target.value, id)}} />
+
           <button onClick={()=>props.DeleteItem(id)} style={{margin:"10px", fontSize:"20px"}} type="button">delete</button>
 
         </div>
         
-
       })
       : 
       null}
@@ -141,7 +139,9 @@ class Title extends React.Component {
     return(
     <>
     <h1 style={{fontSize: "40px", margin: "10px",}}>{title}</h1>
+
     <button style={{margin: "10px"}} onClick={this.props.ToggleFunc}>Toggle</button>
+
     <button onClick={(event)=>this.props.Restart(event)}>Restart</button>
     </>
   )}
@@ -172,7 +172,7 @@ const [names, setNames] =  useState(startNames);
 const [data, setData] = useState(cars);
   
 function ChangeTitle(name, id) {
-  if (name === "") {
+  if (name.trim() === "" ) {
     name = names[id]
   }
  
