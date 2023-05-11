@@ -433,8 +433,15 @@ function App() {
 
 
   return(
-    <>
-    </>
+    <div className='container22'>
+      <div className='box22'>
+    <input className='biginput' id="input_file" type="file" multiple />
+    <label className='input_label' htmlFor="input_file">Choose file</label>
+    </div>
+    <div>
+    <div style={{width:100, height:100, border:"1px solid white", marginTop: 10, borderRadius: 10}}></div>
+    </div>
+    </div>
   )
 }
 export default App

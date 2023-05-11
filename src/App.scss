@@ -185,7 +185,7 @@ $color1: red;
   height: 30px;
   
   margin: 10px;;
-  border: 0px solid black;
+  border: 0px solid rgb(65, 61, 61);
   border-radius: 10px;
 
   background-color: rgb(98, 97, 97);
@@ -196,3 +196,50 @@ $color1: red;
   
 }
 
+
+
+///////////////////////////////////////
+
+
+
+.container22 {
+  width: 100vw;
+  height: 100vh;
+  background-color: #23272f;
+  display: grid;
+  align-content: center;
+  justify-content: space-around;
+}
+
+
+
+.biginput {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+
+  
+}
+
+
+.box22 {
+  width: 800px;
+}
+
+.input_label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: wheat;
+  width: 800px;
+  height: 100px;
+  font-size: 25px;
+  text-align: center; 
+  align-items: center;
+  border-radius: 20px;
+  
+
+  border: 1px solid white;
+
+}
