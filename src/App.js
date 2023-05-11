@@ -5,6 +5,7 @@ import { films } from './components/films';
 import { Component } from 'react';
 import withClass from './HOC/withClass';
 import { useRef } from 'react';
+import { func } from 'prop-types';
 
 
 
@@ -87,13 +88,13 @@ console.log('render')
 
 
 
-////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
-
+/*
 function Item(props) {
   const {data} = props;
   const inputRef = useRef(null);
@@ -211,7 +212,7 @@ return(
     </div>
   )
 }
-
+*/
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -281,7 +282,7 @@ function App3() {
 }
 */
 
-////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -367,6 +368,75 @@ class App extends Component {
 export default withClass(App, App);
 */
 
+
+//////////////////////////////////////////////////////////////////////////////
+
+
+
+
+/*
+function App() {
+
+  const [hex, setHex] = useState("#");
+  const [rgbColor, setRgbColor] = useState({r: 0, g: 0, b: 0})
+
+  function hexToRgb(hex) {
+
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    console.log(result)
+
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+  }
+
+
+  function changeValue(value) {
+    if(value==="") {
+      value = "#"
+    }
+    setHex(value)
+
+    if(hexToRgb(value)) {
+      setRgbColor(hexToRgb(value))
+      console.log()
+
+    } else if (value.length === 7 && !hexToRgb(value) ) {
+      setHex("#")
+    }
+  }
+
+  return(
+    <div style={{backgroundColor: `rgb(${rgbColor.r}, ${rgbColor.g}, ${rgbColor.b})`}} className='container21'>
+      <p className='box11'>"#a-f,0-9"</p>
+      <input maxLength={7} value={hex} onChange={(evt)=> changeValue(evt.target.value)} className='box11' type="text" />
+      <p className='box11'>rgb({rgbColor.r}, {rgbColor.g}, {rgbColor.b})</p>
+    </div>
+  )
+}
+*/
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+function App() {
+
+
+  return(
+    <>
+    </>
+  )
+}
 export default App
 
 
