@@ -243,3 +243,14 @@ $color1: red;
   border: 1px solid white;
 
 }
+
+
+.img_box {
+  box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  border: 1px solid white;
+  border-radius: 10px;
+  display: inline;
+  margin: 20px;
+}

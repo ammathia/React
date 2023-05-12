@@ -427,20 +427,66 @@ function App() {
 
 
 
+function ShowImage(props) {
+
+  const { urls } = props
+
+
+  return(
+    <div>
+      { urls && urls.map((item, id) => {
+    return <img key = {id} className='img_box' src={item} alt="img" />
+      })}
+    </div>
+  )
+}
+
 
 
 function App() {
 
+  const [files, setFiles] = useState("");
 
+  const [ urls, setUrls ] = useState("")
+
+  const inputRef = useRef();
+
+
+
+
+  const handleName = () => {
+    setFiles(...inputRef.current.files)
+  }
+  
+  useEffect(()=> {
+    
+    if(files && files.length !== 0) {
+      console.log(files)
+       setUrls((prev) =>  [...prev, URL.createObjectURL(files)])
+    }
+
+  }, [files]);
+
+  function changeToZero() {
+
+  }
+  
+
+ 
   return(
     <div className='container22'>
+
       <div className='box22'>
-    <input className='biginput' id="input_file" type="file" multiple />
-    <label className='input_label' htmlFor="input_file">Choose file</label>
+
+    <input accept='image/png, image/jpeg, image/jpg' ref={inputRef} className='biginput'
+     id="input_file" type="file"  onChange={handleName} />
+
+    <label className='input_label' htmlFor="input_file">Choose image file</label>
+
     </div>
-    <div>
-    <div style={{width:100, height:100, border:"1px solid white", marginTop: 10, borderRadius: 10}}></div>
-    </div>
+
+    <ShowImage urls={urls} />
+    
     </div>
   )
 }
