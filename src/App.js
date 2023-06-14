@@ -1,14 +1,11 @@
-import './App.scss';
-import React, {useEffect, useState} from 'react';
-import { projects } from './components/projects';
-import { films } from './components/films';
-import { Component } from 'react';
-import withClass from './HOC/withClass';
-import { useRef } from 'react';
-import { func } from 'prop-types';
-
-
-
+import "./App.scss";
+import React, { useEffect, useState } from "react";
+import { projects } from "./components/projects";
+import { films } from "./components/films";
+import { Component } from "react";
+import withClass from "./HOC/withClass";
+import { useRef } from "react";
+import { func } from "prop-types";
 
 /*
 function ProjectList(props) {
@@ -86,13 +83,7 @@ console.log('render')
 }
 */
 
-
-
 //////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
 
 /*
 function Item(props) {
@@ -284,8 +275,6 @@ function App3() {
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
-
-
 /*
 class Lock extends Component {
 
@@ -368,11 +357,7 @@ class App extends Component {
 export default withClass(App, App);
 */
 
-
 //////////////////////////////////////////////////////////////////////////////
-
-
-
 
 /*
 function App() {
@@ -418,13 +403,7 @@ function App() {
 }
 */
 
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 /*
 function ShowImage(props) {
@@ -492,23 +471,8 @@ function App() {
 }
 */
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 
+function App() {}
 
-
-function App() {
-  
-}
-
-
-
-export default App
-
-
-
-
-
-
-
-
+export default App;
