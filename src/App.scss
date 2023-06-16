@@ -231,12 +231,34 @@ $color1: red;
   width: 100vw;
   display: flex;
   text-align: center;
-  margin: 10px;
   justify-content: center;
   justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  column-gap: 10px;
 
   .inputTodo {
+    margin-top: 100px;
+    padding: 10px;
     width: 500px;
+    border-radius: 20px;
+    border: 2px solid black;
     font-size: 40px;
+  }
+
+  div.Todo {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    button {
+      width: 60px;
+      height: 30px;
+    }
+  }
+  div.divButton {
+    align-items: center;
+    display: flex;
+    justify-content: end;
   }
 }

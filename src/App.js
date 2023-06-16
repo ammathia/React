@@ -7,6 +7,13 @@ import withClass from "./HOC/withClass";
 import { useRef } from "react";
 import { func } from "prop-types";
 import { useReducer } from "react";
+import Todo from "./components/Todo";
+
+export const ACTIONS = {
+  DELETE_TODO: "delete-todo",
+  ADD_TODO: "add-todo",
+  TOGGLE_TODO: "toggle-todo",
+};
 
 /*
 function ProjectList(props) {
@@ -474,18 +481,43 @@ function App() {
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-function reducer(state, action) {}
+/*
+
+function reducer(todos, action) {
+  // eslint-disable-next-line default-case
+  switch (action.type) {
+    case ACTIONS.ADD_TODO:
+      return [...todos, newTodo(action.payload.name)];
+    case ACTIONS.TOGGLE_TODO:
+      return todos.map((todo) => {
+        if (todo.id === action.payload.id) {
+          return { ...todo, complete: !todo.complete };
+        }
+        return todo;
+      });
+    case ACTIONS.DELETE_TODO:
+      return todos.filter((todo) => todo.id !== action.payload.id);
+    default:
+      return todos;
+  }
+}
+
+function newTodo(name) {
+  return { id: Date.now(), name: name, complete: false };
+}
 
 function App() {
-  const [todos, dispatch] = useReducer(reducer, {});
-  const [name, setName] = useState("");
+  const [todos, dispatch] = useReducer(reducer, []);
+  const [name, setName] = useState([]);
 
-  function onSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
+    dispatch({ type: ACTIONS.ADD_TODO, payload: { name: name } });
+    setName("");
   }
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="divTodo">
           <input
             className="inputTodo"
@@ -493,9 +525,17 @@ function App() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+          {todos.map((todo) => {
+            return <Todo dispatch={dispatch} todo={todo}></Todo>;
+          })}
         </div>
       </form>
     </>
   );
 }
+export default App;
+*/
+
+function App() {}
+
 export default App;
