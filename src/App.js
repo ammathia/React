@@ -6,6 +6,7 @@ import { Component } from "react";
 import withClass from "./HOC/withClass";
 import { useRef } from "react";
 import { func } from "prop-types";
+import { useReducer } from "react";
 
 /*
 function ProjectList(props) {
@@ -473,6 +474,28 @@ function App() {
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-function App() {}
+function reducer(state, action) {}
 
+function App() {
+  const [todos, dispatch] = useReducer(reducer, {});
+  const [name, setName] = useState("");
+
+  function onSubmit(event) {
+    event.preventDefault();
+  }
+  return (
+    <>
+      <form onSubmit={onSubmit}>
+        <div className="divTodo">
+          <input
+            className="inputTodo"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+      </form>
+    </>
+  );
+}
 export default App;
