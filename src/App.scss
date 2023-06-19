@@ -6,6 +6,7 @@ html {
 *::after,
 *::before {
   box-sizing: border-box;
+  margin: 10px;
 }
 .App {
   text-align: center;

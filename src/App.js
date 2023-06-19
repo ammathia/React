@@ -8,7 +8,7 @@ import { useRef } from "react";
 import { func } from "prop-types";
 import { useReducer } from "react";
 import Todo from "./components/Todo";
-
+import Counter from "./features/counter/Counter";
 export const ACTIONS = {
   DELETE_TODO: "delete-todo",
   ADD_TODO: "add-todo",
@@ -536,6 +536,12 @@ function App() {
 export default App;
 */
 
-function App() {}
+function App() {
+  return (
+    <>
+      <Counter></Counter>
+    </>
+  );
+}
 
 export default App;
